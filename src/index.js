@@ -74,8 +74,10 @@ export default class SimplePDF extends React.Component {
     this.loadPDF();
   }
 
-  componentDidUpdate() {
-    this.loadPDF();
+  componentDidUpdate(prevProps) {
+    if (prevProps.file !== this.props.file) {
+      this.loadPDF();
+    }
   }
 }
 
